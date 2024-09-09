@@ -30,6 +30,7 @@ class ClientesFront extends Component
 
     public function render()
     {
+
         $this->boletos = Boletos::inRandomOrder()->limit(500)->get();
         $this->numeros = array();
         $this->boletos_disponibles = array();
