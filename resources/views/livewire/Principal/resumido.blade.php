@@ -8,7 +8,7 @@
                     <span class="font-bold text-gray-500">{{"Nombre:"}}</span> {{$nombre}}<br/><br>
                     <span class="font-bold text-gray-500">{{"Ubicación:"}}</span> {{$ciudad}} {{", "}} {{$estado}}<br/><br>
                     <span class="font-bold text-gray-500">{{"Monto a Pagar: $"}}</span> {{ number_format((float)$costo_final , 2, '.', '') }}<br/><br>
-                    <span class="font-bold text-gray-500">{{"Boletos:"}}</span> {{$cadena_final}}<br/><br>
+                    <span class="font-bold text-gray-500">{{"Boletos:"}}</span> {{$comprados}}<br/><br>
                 </x-card>
             </div>
         </div>
