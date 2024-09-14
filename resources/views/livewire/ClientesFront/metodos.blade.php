@@ -22,7 +22,7 @@
                             <span class="mb-1 text-black text-2xl dark:text-gray-400">BBVA</span>
                             <dt class="mb-1 text-black md:text-2xl dark:text-gray-400">Tarjeta</dt>
                             <dt class="mb-1 text-black md:text-2xl font-semibold dark:text-gray-400">Jesús Neftali Garcia Padilla</dt>
-                            <dd class="text-2xl font-bold text-black">4152 3139 7044 8268</dd>
+                            <dd class="text-2xl font-bold text-black">4152 3139 7044 8168</dd>
                         </div>
                         <div class="container py-10 px-10 mx-0 min-w-full flex flex-col items-center">
                             <span class="mb-1 text-black text-2xl dark:text-gray-400">BBVA</span>
