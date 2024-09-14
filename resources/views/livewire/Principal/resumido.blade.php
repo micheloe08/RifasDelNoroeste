@@ -7,7 +7,7 @@
                 <x-card title="Apartado" informacion="100" ruta="{{ route('clientes') }}" imagen="{{ asset('storage/'.$data->imagen1) }}" texto='text-left'>
                     <span class="font-bold text-gray-500">{{"Nombre:"}}</span> {{$nombre}}<br/><br>
                     <span class="font-bold text-gray-500">{{"Ubicación:"}}</span> {{$ciudad}} {{", "}} {{$estado}}<br/><br>
-                    <span class="font-bold text-gray-500">{{"Monto a Pagar: $"}}</span> {{ $costo_final }}{{".00"}}<br/><br>
+                    <span class="font-bold text-gray-500">{{"Monto a Pagar: $"}}</span> {{ number_format((float)$costo_final , 2, '.', '') }}<br/><br>
                     <span class="font-bold text-gray-500">{{"Boletos:"}}</span> {{$cadena_final}}<br/><br>
                 </x-card>
             </div>
