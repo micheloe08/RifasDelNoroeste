@@ -115,7 +115,7 @@ class ClientesFront extends Component
                 'estado' => $this->estado,
                 'ciudad' => $this->ciudad
             ]);
-            $this->cliente_id = Clientes::latest()->first()->id;
+            $this->cliente_id = $cliente->id;
         }
         $cantidad = count($this->numerosElegidos);
         if ($cantidad > 0) {
