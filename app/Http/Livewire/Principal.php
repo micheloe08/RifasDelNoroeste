@@ -37,7 +37,8 @@ class Principal extends Component
 
         $clientes = Clientes::where('telefono', '=', $this->depurar)->first();
         $busqueda = DB::select('select apartados.costo from apartados
-        where apartados.cliente_id = :cliente', ['cliente' => $clientes->id]);
+        inner join clientes on apartados.cliente_id = clientes.id
+        where clientes.telefono = :telefono', ['telefono' => $this->depurar]);
 
         $this->costo_final = $busqueda;
 
