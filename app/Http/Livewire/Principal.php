@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Apartados;
 use Livewire\Component;
 use App\Models\Sorteos;
 use Illuminate\Support\Facades\DB;
@@ -9,7 +10,7 @@ use App\Models\Clientes;
 
 class Principal extends Component
 {
-    public $data, $depurar, $comprados, $clientes, $ciudad, $estado, $nombre;
+    public $data, $depurar, $comprados, $clientes, $ciudad, $estado, $nombre, $costo_final, $apartado;
     public $boletaje = false;
     public $consulta = false;
     public $mirar = false;
@@ -35,6 +36,10 @@ class Principal extends Component
         where sorteos.status = 1 AND clientes.telefono = :telefono', ['telefono' => $this->depurar]);
 
         $clientes = Clientes::where('telefono', '=', $this->depurar)->first();
+        $busqueda = DB::select('select apartados.costo from apartados
+        where apartados.cliente_id = :cliente', ['cliente' => $clientes->id]);
+
+        $this->costo_final = $busqueda;
 
         if ($encontrar) {
             $conjunto = array();
