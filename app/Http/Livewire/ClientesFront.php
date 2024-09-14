@@ -100,7 +100,15 @@ class ClientesFront extends Component
             'estado' => 'required',
             'ciudad' => 'required'
         ]);
-        if (!$this->cliente_id) {
+        $cliente = Clientes::where('telefono', '=', $this->searchterm );
+        if ($cliente) {
+            Clientes::where('telefono', $this->searchterm)->update([
+                'telefono' => $this->searchterm,
+                'nombre' => $this->nombre,
+                'estado' => $this->estado,
+                'ciudad' => $this->ciudad
+            ]);
+        } else {
             Clientes::create([
                 'telefono' => $this->searchterm,
                 'nombre' => $this->nombre,
@@ -108,13 +116,6 @@ class ClientesFront extends Component
                 'ciudad' => $this->ciudad
             ]);
             $this->cliente_id = Clientes::latest()->first()->id;
-        } else {
-            Clientes::where('telefono', $this->searchterm)->update([
-                'telefono' => $this->searchterm,
-                'nombre' => $this->nombre,
-                'estado' => $this->estado,
-                'ciudad' => $this->ciudad
-            ]);
         }
         $cantidad = count($this->numerosElegidos);
         if ($cantidad > 0) {
