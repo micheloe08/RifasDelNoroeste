@@ -4,7 +4,7 @@
             </div>
         <div class="flex gap-12 mb-12 md:grid-cols-1 sm-gap-4 border-gray-500">
             <div class="w-full">
-                <x-card title="Apartado" informacion="100" ruta="{{ route('clientes') }}" imagen="{{ asset('storage/'.$datas->imagen1) }}" texto='text-left'>
+                <x-card title="Apartado" informacion="100" ruta="{{ route('clientes') }}" imagen="{{ asset('storage/'.$data->imagen1) }}" texto='text-left'>
                     <span class="font-bold text-gray-500">{{"Nombre:"}}</span> {{$nombre}}<br/><br>
                     <span class="font-bold text-gray-500">{{"Ubicación:"}}</span> {{$ciudad}} {{", "}} {{$estado}}<br/><br>
                     <span class="font-bold text-gray-500">{{"Monto a Pagar: $"}}</span> {{ number_format($costo_final, 2) }}<br/><br>
