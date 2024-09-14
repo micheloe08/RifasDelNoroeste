@@ -131,19 +131,6 @@ class ClientesFront extends Component
                 'estatus' => $this->estatus ?: 'Apartado'
             ]);
 
-        $cantidad = count($this->numerosElegidos);
-        if ($cantidad > 0) {
-            $this->costo_final = ($cantidad * $this->datas->costo);
-            Apartados::create([
-                'cliente_id' => $this->cliente_id,
-                'sorteo_id' => $this->datas->id,
-                'boletos' => $cantidad,
-                'costo' => $this->costo_final,
-                'pronto_pago' => $this->pronto_pago ?: 0,
-                'promo' => $this->promo ?: 0,
-                'estatus' => $this->estatus ?: 'Apartado'
-            ]);
-
             $ultimoId = Apartados::latest()->first()->id;
             $cadenas = array();
             foreach ($this->numerosElegidos as $elegidos)
