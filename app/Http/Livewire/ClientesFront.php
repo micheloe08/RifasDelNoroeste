@@ -109,7 +109,7 @@ class ClientesFront extends Component
             ]);
             $this->cliente_id = Clientes::latest()->first()->id;
         } else {
-            Clientes::where('id', $this->cliente_id)->update([
+            Clientes::where('telefono', $this->searchterm)->update([
                 'telefono' => $this->searchterm,
                 'nombre' => $this->nombre,
                 'estado' => $this->estado,
