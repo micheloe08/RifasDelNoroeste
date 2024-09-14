@@ -40,7 +40,7 @@ class Principal extends Component
         inner join clientes on apartados.cliente_id = clientes.id
         where clientes.telefono = :telefono', ['telefono' => $this->depurar]);
 
-        $this->costo_final = $busqueda;
+        $this->costo_final = $busqueda[0];
 
         if ($encontrar) {
             $conjunto = array();
