@@ -36,11 +36,11 @@ class Principal extends Component
         where sorteos.status = 1 AND clientes.telefono = :telefono', ['telefono' => $this->depurar]);
 
         $clientes = Clientes::where('telefono', '=', $this->depurar)->first();
-        $busqueda = DB::select('select apartados.costo from apartados
+        $busqueda = DB::select('select apartados.costo as total from apartados
         inner join clientes on apartados.cliente_id = clientes.id
         where clientes.telefono = :telefono', ['telefono' => $this->depurar]);
 
-        $this->costo_final = $busqueda[0];
+        $this->costo_final = $busqueda[0]->total;
 
         if ($encontrar) {
             $conjunto = array();
