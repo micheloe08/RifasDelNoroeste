@@ -27,6 +27,7 @@ class ClientesFront extends Component
     public $open = false;
     public $animar = false;
     public $alerta = false;
+    public $show =false;
 
     public function render()
     {
@@ -92,6 +93,28 @@ class ClientesFront extends Component
         $this->render();
     }
 
+    public function buscarNumeroTel()
+    {
+        $this->validate([
+            'searchterm' => 'required',
+        ]);
+        $this->show = true;
+        $clientes = Clientes::where('telefono', '=', $this->searchterm)->first();
+        if ($clientes) {
+            $this->searchterm = $clientes->telefono;
+            $this->nombre = $clientes->nombre;
+            $this->estado = $clientes->estado;
+            $this->ciudad = $clientes->ciudad;
+            $this->cliente_id = $clientes->id;
+        } else {
+            $this->searchterm = $this->searchterm;
+            $this->nombre = '';
+            $this->estado = '';
+            $this->ciudad = '';
+        }
+
+    }
+
     public function apartar()
     {
         $this->validate([
@@ -100,15 +123,13 @@ class ClientesFront extends Component
             'estado' => 'required',
             'ciudad' => 'required'
         ]);
-        $cliente = Clientes::where('telefono', '=', $this->searchterm );
-        if ($cliente) {
-            Clientes::where('telefono', $this->searchterm)->update([
+        if ($this->cliente_id) {
+            Clientes::where('id', $this->cliente_id)->update([
                 'telefono' => $this->searchterm,
                 'nombre' => $this->nombre,
                 'estado' => $this->estado,
                 'ciudad' => $this->ciudad
             ]);
-            $this->cliente_id = $cliente->id;
         } else {
             Clientes::create([
                 'telefono' => $this->searchterm,

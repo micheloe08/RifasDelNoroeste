@@ -22,18 +22,25 @@
         <div class="pt-5">
 
         </div>
-<div class="grid gap-12 mb-12 md:grid-cols-1">
+ <div class="gap-12 mb-12 cols-1">
     <input type="hidden" wire:model.defer="cliente_id">
-    <div>
+    <div class="relative w-full">
         <label for="searchterm" class="block mb-2 text-sm font-medium text-gray">Teléfono</label>
-        <input type="text" id="searchterm" wire:model.live="searchterm" class="{{ $errors->has('searchterm') ? ' border-red-500' : 'border-gray-500' }} bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" wire:keydown = "search">
+        <input type="text" id="searchterm" wire:model="searchterm" class="{{ $errors->has('searchterm') ? ' border-red-500' : 'border-gray-500' }} bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
         @error('searchterm')
         <span class="text-red-500 text-xs italic">{{ $message }}</span>
         @enderror
     </div>
 </div>
+<div class="pt-5">
 
-
+</div>
+<div class="grid gap-12 mb-12 md:grid-cols-1">
+    <button type="submit" class="text-white bg-gradient-to-r from-gray-400 via-gray-600 to-gray-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-gray-300 dark:focus:ring-gray-800 font-small rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 w-2" wire:click ="buscarNumeroTel()">
+        Buscar Datos 🔎
+     </button>
+</div>
+@if ($show)
 <div class="grid gap-12 mb-12 md:grid-cols-1">
     <div>
         <label for="nombre" class="block mb-2 text-sm font-medium">Nombre Completo</label>
@@ -59,10 +66,12 @@
         @enderror
     </div>
 </div>
-
 <div class="grid gap-12 mb-12 md:grid-cols-1">
-    <button type="button" wire:loading.attr="disabled" wire:click.prevent ="apartar()" class="text-white bg-gradient-to-r from-gray-400 via-gray-500 to-gray-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-gray-300 dark:focus:ring-gray-800 shadow-lg shadow-gray-500/50 dark:shadow-lg dark:shadow-gray-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Apartar Boletos</button>
+    <button type="button" wire:loading.attr="disabled" wire:click.prevent ="apartar()" class="text-white bg-gradient-to-r from-gray-400 via-gray-500 to-gray-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-gray-300 dark:focus:ring-gray-800 shadow-lg shadow-gray-500/50 dark:shadow-lg dark:shadow-gray-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Apartar Boletos 🎫</button>
 </div>
+@endif
+
+
 @if ($mostrar)
     <div class="list__buttons">
         <span class="font-medium">Numeros Elegidos</span><br/>
@@ -77,7 +86,7 @@
     </div>
 @endif
 <div class="grid gap-12 mb-12 md:grid-cols-1">
-    <button type="button" class="text-white bg-gradient-to-r from-gray-200 via-gray-400 to-gray-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-gray-300 dark:focus:ring-gray-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" wire:click ="$set('open', true)">Seleccionar al azar</button>
+    <button type="button" class="text-white bg-gradient-to-r from-gray-200 via-gray-400 to-gray-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-gray-300 dark:focus:ring-gray-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" wire:click ="$set('open', true)">Seleccionar al azar 🤞🏻🍀</button>
 </div>
 <div class="flex gap-12 mb-12 cols-1">
     <label for="buscar" class="sr-only">Search</label>
@@ -88,9 +97,7 @@
         @enderror
     </div>
     <button type="submit" class="text-white bg-gradient-to-r from-gray-200 via-gray-400 to-gray-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-gray-300 dark:focus:ring-gray-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" wire:click ="buscarDato()">
-        <svg class="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-        </svg>
+       🔎
     </button>
 </div>
 <div id = "lista" class="list__buttons w-5/5 bg-gray-50 max-h-screen h-96 overflow-y-auto">
