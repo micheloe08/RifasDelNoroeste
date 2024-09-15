@@ -12,8 +12,8 @@
         @endif
 
         <div class="p-1 mb-4 text-xl text-center rounded-lg  text-white bg-gradient-to-r from-gray-400 via-gray-500 to-gray-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-gray-300 dark:focus:ring-gray-800 shadow-lg shadow-gray-500/50 dark:shadow-lg dark:shadow-gray-800/80" role="alert">
-            <span class="font-medium"> <h1>Aparta tus Boletos</h1></span>
-            <span class="font-medium"> {{ $datas->descripcion }}</span><br/>
+            <span class="font-medium"> <h1>Aparta tus Boletos 🎫🍀🤞🏻</h1></span>
+            <span class="font-medium"> {{ $datas->descripcion }} 🎰🎲</span><br/>
             <span class="font-medium"> Precios desde: ${{ $datas->costo }} Pesos!!</span>
           </div>
           <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -70,7 +70,6 @@
     <button type="button" wire:loading.attr="disabled" wire:click.prevent ="apartar()" class="text-white bg-gradient-to-r from-gray-400 via-gray-500 to-gray-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-gray-300 dark:focus:ring-gray-800 shadow-lg shadow-gray-500/50 dark:shadow-lg dark:shadow-gray-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Apartar Boletos 🎫</button>
 </div>
 @endif
-
 
 @if ($mostrar)
     <div class="list__buttons">
