@@ -49,7 +49,7 @@
             </footer>
 
         </div>
-        <a id="whats" href="https://wa.me/5216679477707?text=Me%20gustaría%20saber%20más" class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
+        <a id="whats" href="https://wa.me/5216721742590?text=Me%20gustaría%20saber%20más" class="whatsapp" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
         @stack('modals')
 
         @livewireScripts
