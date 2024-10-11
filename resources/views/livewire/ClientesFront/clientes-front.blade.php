@@ -118,6 +118,7 @@
                 <label for="cantidad_boletos" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cantidad de Boletos</label>
                 <select id="cantidad_boletos" wire:model="cantidad_boletos" class="form-control {{ $errors->has('cantidad_boletos') ? ' border-red-500' : 'border-gray-200' }} bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option selected>Seleccione Una</option>
+                    <option value="40">Promoción 40</option>
                     <option value="1">1</option>
                     <option value="5">5</option>
                     <option value="10">10</option>

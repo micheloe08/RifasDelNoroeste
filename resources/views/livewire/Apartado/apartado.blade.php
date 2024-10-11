@@ -33,7 +33,11 @@
             <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $item->telefono }} </th>
                     <td scope="col">{{ $item->nombre}}</td>
-                    <td scope="col">${{ $item->costo }}.00</td>
+                    @if ($item->promo == '1')
+                        <td scope="col">${{ $item->costo }}.00 Promoción aplicada</td>
+                    @else
+                        <td scope="col">${{ $item->costo }}.00</td>
+                    @endif
                     @if ($item->estatus == 'Pagado')
                         <td scope="col">
                             <button disabled class="px-3 py-2 bg-blue-200 text-blue-500 hover:bg-blue-500 hover:text-white rounded">Pagado</button>
@@ -42,6 +46,9 @@
                     <td scope="col">
                         <button onclick="confirm('¿Está seguro?') || event.stopImmediatePropagation()" wire:click="delete({{ $item->apartado }})" class="px-3 py-2 bg-red-200 text-red-500 hover:bg-red-500 hover:text-white rounded">Liberar</button>
                         <button onclick="confirm('¿Está seguro?') || event.stopImmediatePropagation()" wire:click="update({{ $item->apartado }})" class="px-3 py-2 bg-green-200 text-green-500 hover:bg-green-500 hover:text-white rounded">Pagar</button>
+                        @if ($item->promo == '1')
+                            <button onclick="confirm('¿Está seguro?') || event.stopImmediatePropagation()" wire:click="updatePromo({{ $item->apartado }})" class="px-3 py-2 bg-blue-200 text-blue-500 hover:bg-blue-500 hover:text-white rounded">Promo</button>
+                        @endif
                     </td>
                     @endif
                 </tr>

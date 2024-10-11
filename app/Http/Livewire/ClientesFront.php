@@ -141,6 +141,10 @@ class ClientesFront extends Component
         }
         $cantidad = count($this->numerosElegidos);
         if ($cantidad > 0) {
+            if ($cantidad == 40) {
+                $this->promo = 1;
+                $this->costo_final = ($cantidad * $this->datas->costo) / 2;
+            }
             $this->costo_final = ($cantidad * $this->datas->costo);
             Apartados::create([
                 'cliente_id' => $this->cliente_id,
@@ -205,7 +209,11 @@ class ClientesFront extends Component
                 $this->selecciona($n->boleto);
             }
         $this->alerta = true;
-        session()->flash('message', 'Generados Correctamente');
+        if ($this->cantidad_boletos == 40) {
+            session()->flash('message', 'Promo 40 aplicada correctamente');
+        } else {
+            session()->flash('message', 'Generados Correctamente');
+        }
     }
 
 }
